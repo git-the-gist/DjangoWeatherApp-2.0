@@ -1,0 +1,180 @@
+
+@media (max-width: 600px){
+  #suggestions{
+    max-height: 70px;
+  }
+  .weather{
+      flex-direction: column;
+    }
+  .city{
+    justify-content: center;
+  }
+  .city-txt{
+    margin-left: 0%;
+  }
+  .info-content{
+    flex-direction: column;
+  }
+  .first-row{
+    margin-right: 0%;
+    margin-bottom: 2%;
+  }
+  .high, .low, .humidity, .wind, .sunrise, .sunset{
+    width: 15vw;
+    height: 20vh;
+  }
+  .weather{
+    height: 50%;
+  }
+  .temp{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  .time{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .temp, .status, .time{
+    width: 60%;
+  }
+}
+  
+@media (orientation: portrait){
+  .weather{
+      flex-direction: column;
+  }
+  .city{
+      justify-content: center;
+  }
+  .city-txt{
+      margin-left: 0%;
+  }
+  .info-content{
+      flex-direction: column;
+  }
+  .first-row{
+      margin-right: 0%;
+      margin-bottom: 2%;
+  }
+  .city, .weather, .info{
+      width: 90%;
+  }
+  .temp{
+      margin-left: 5%;
+  }
+  
+  .time{
+      margin-right: 5%;
+  }
+  .temp-txt{
+    font-size: 5rem;
+  }
+
+  .time-txt{
+    font-size: 1.5rem;
+  }
+  .high, .low, .humidity, .wind, .sunrise, .sunset{
+      width: 27vw;
+      height: 20vh;
+      border-radius: 20px;
+  }
+  .high-legend, .low-legend, .humidity-legend, .wind-legend, .sunrise-legend, .sunset-legend{
+    font-size: 1.5rem;
+  }
+  #high-icon, #low-icon, #humidity-icon, #wind-icon, #sunrise-icon, #sunset-icon{
+    width: 18vw;
+    height: 18vw;
+  }
+  .high-value, .low-value, .humidity-value, .sunrise-value, .sunset-value, .wind-value{
+    font-size: 1.4rem;
+  }  
+  .info{
+      height: 90%;
+  }
+  #search, #search::placeholder{
+    width: 30vw;
+  }
+
+  #suggestions{
+    width: 30vw;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 380px){
+  .time-txt{
+    text-align: right;
+  }
+  .high, .low, .humidity, .wind, .sunrise, .sunset{
+    height: 21vh;
+  }
+  .high-legend, .low-legend, .humidity-legend, .wind-legend, .sunrise-legend, .sunset-legend{
+    font-size: 1.2rem;
+  }
+  #high-icon, #low-icon, #humidity-icon, #wind-icon, #sunrise-icon, #sunset-icon{
+    width: 14vw;
+    height: 14vw;
+  }
+  .high-value, .low-value, .humidity-value, .sunrise-value, .sunset-value, .wind-value{
+    font-size: 1.2rem;
+  }  
+  #search, #search::placeholder{
+    width: 30vw;
+  }
+
+  #suggestions{
+    width: 30vw;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait){
+  .temp-txt{
+    font-size: 10rem;
+  }
+  .time-txt{
+    font-size: 2.5rem;
+  }
+  #high-icon, #low-icon, #humidity-icon, #wind-icon, #sunrise-icon, #sunset-icon{
+    width: 12vw;
+    height: 12vw;
+  }
+  .high-legend, .low-legend, .humidity-legend, .wind-legend, .sunrise-legend, .sunset-legend{
+    font-size: 2rem;
+  }
+  .high-value, .low-value, .humidity-value, .sunrise-value, .sunset-value, .wind-value{
+    font-size: 2rem;
+  }
+  #search, #search::placeholder{
+    width: 30vw;
+  }
+  #suggestions{
+    width: 30vw;
+  }
+}
+
+@media (orientation: landscape){
+  .status{
+    flex-direction: row;
+  }
+  #status-icon{
+    width: 4vw;
+    height: 4vw;
+  }
+  .high, .low, .humidity, .wind, .sunrise, .sunset{
+    width: 10.1vw;
+  }
+  footer{
+    margin-right: 5px;
+    margin-bottom: 2.2%;
+  }
+}
+
+@media (max-width: 904px) and (max-height: 392px) and (orientation: landscape){
+  .prime-tmp-tme{
+    margin-top: -1%;
+  }
+  .temp-txt{
+    font-size: 4rem;
+  }
+}

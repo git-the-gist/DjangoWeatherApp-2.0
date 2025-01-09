@@ -1,0 +1,62 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+  <script src="{% static 'js/autocomplete.js' %}" defer></script>
+  <title>weathersource</title>
+</head>
+<body>
+  <div class="content">
+    <header>
+      <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">weathersource</a>
+    </header>
+    <nav>
+      <div class="search">
+        <form method="GET" action="{% url 'search_city' %}" class ="wrapper">
+
+          <input type="text" id="search" name="city" placeholder="search city..." class="autocomplete">
+
+          <div class="input-container">
+            <div class="suggestions" id="suggestions">
+              <ul id="suggestions-list" style="list-style: none; margin: 0; padding: 0;"></ul>
+            </div>
+          </div>
+
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="unit"><button id="toggle-button"></button></div>
+    </nav>
+    <div class="error-msg">
+        <div class="error-msg-content">
+          <div class="frst-lne">USER LOCATION NOT FOUND.</div>
+          <div class="scnd-lne">PLEASE USE SEARCH.</div>
+        </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">&#169;Roland Okili</div>
+        <div class="framework">powered by django</div>
+        <div class="license-attribution">
+          <p class="license-attribution">CC</p>
+          <span class="hover-text">
+            "world cities (including states and counties for duplicate names)"
+            Database from joelacus on GitHub, licensed under CC BY 4.0.
+            Modified to include normalized city names (city names without accents).
+            </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+"world_cities_(including_states_and_counties_for_duplicate_names)"
+Database from joelacus on GitHub, licensed under CC BY 4.0.
+Modified to include normalized city names (city names without accents).
+

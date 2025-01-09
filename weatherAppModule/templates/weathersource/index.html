@@ -1,0 +1,142 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+  <script src="{% static 'js/autocomplete.js' %}" defer></script>
+  <script src="{% static 'js/local-time.js' %}" defer></script>
+  <script src="{% static 'js/change-units.js' %}" defer></script>
+  <title>weathersource</title>
+</head>
+<body>
+  <div class="content">
+    <header>
+      <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">weathersource</a>
+    </header>
+    <nav>
+      <div class="search">
+        <form method="GET" action="{% url 'search_city' %}" class ="wrapper">
+
+          <input type="text" id="search" name="city" placeholder="search city..." class="autocomplete">
+
+          <div class="input-container">
+            <div class="suggestions" id="suggestions">
+              <ul id="suggestions-list" style="list-style: none; margin: 0; padding: 0;"></ul>
+            </div>
+          </div>
+
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="unit"><button id="toggle-button"></button></div>
+    </nav>
+    <div class="city">
+      <div class="city-txt">
+        {{ city_weather.city }}
+        <div id="isFahrenheit"></div>
+      </div>
+    </div>
+    <div class="weather">
+      <div class="prime">
+        <div class="prime-status">
+          <div class="status">
+            <div class="status-icon"><img id="status-icon" src="http://openweathermap.org/img/w/{{ city_weather.peripheral_data.icon }}.png" alt="weather"></div>
+            <div class="status-txt">{{ city_weather.peripheral_data.status }}</div>
+          </div>
+        </div>
+        <div class="prime-tmp-tme">
+          <div class="temp">
+            <div class="temp-txt"></div>
+          </div>
+          <div class="time">
+            <div class="time-txt" id="time-txt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="info">
+        <div class="info-content">
+          <div class="first-row">
+            <div class="high">
+                <div class="high-legend">High</div>
+                <div class="high-icon"><img id="high-icon" src="{% static 'images/high.png' %}"></div>
+                <div class="high-value"></div>
+            </div>
+            <div class="low">
+                <div class="low-legend">Low</div>
+                <div class="low-icon"><img id="low-icon" src="{% static 'images/low.png' %}"></div>
+                <div class="low-value"></div>
+            </div>
+            <div class="humidity">
+              <div class="humidity-legend">Humidity</div>
+              <div class="humidity-icon"><img id="humidity-icon" src="{% static 'images/humidity.png' %}"></div>
+              <div class="humidity-value">{{ city_weather.peripheral_data.humidity }}%</div>
+            </div>
+          </div>
+          <div class="second-row">
+            <div class="wind">
+              <div class="wind-legend">Wind</div>
+              <div class="wind-icon"><img id="wind-icon" src="{% static 'images/wind.png' %}"></div>
+              <div class="wind-value"></div>
+            </div>
+            <div class="sunrise">
+              <div class="sunrise-legend">Sunrise</div>
+              <div class="sunrise-icon"><img id="sunrise-icon" src="{% static 'images/sunrise.png' %}"></div>
+              <div class="sunrise-value"></div>
+            </div>
+            <div class="sunset">
+              <div class="sunset-legend">Sunset</div>
+              <div class="sunset-icon"><img id="sunset-icon" src="{% static 'images/sunset-01-01.png' %}"></div>
+              <div class="sunset-value"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">&#169;Roland Okili</div>
+        <div class="framework">powered by django</div>
+        <div class="license-attribution">
+          <p class="license-attribution">CC</p>
+          <span class="hover-text">
+            "world cities (including states and counties for duplicate names)"
+            Database from joelacus on GitHub, licensed under CC BY 4.0.
+            Modified to include normalized city names (city names without accents).
+            </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+        const weatherData = {
+            celsius: { 
+                wind: "{{ city_weather.peripheral_data.wind_speed_km }}",
+                temp: "{{ city_weather.celsius_obj.celsius_temp }}",
+                high: "{{ city_weather.celsius_obj.high_celsius }}",
+                low: "{{ city_weather.celsius_obj.low_celsius }}",
+                sunrise: "{{ city_weather.sun_times_dict.twenty_four_hour.sunrise }}",
+                sunset: "{{ city_weather.sun_times_dict.twenty_four_hour.sunset }}",
+            }, 
+            fahrenheit: {
+                wind: "{{ city_weather.peripheral_data.wind_speed }}",
+                temp: "{{ city_weather.fahrenheit_obj.fahrenheit_temp }}",
+                high: "{{ city_weather.fahrenheit_obj.high_fahrenheit }}",
+                low: "{{ city_weather.fahrenheit_obj.low_fahrenheit }}",
+                sunrise: "{{ city_weather.sun_times_dict.twelve_hour.sunrise }}",
+                sunset: "{{ city_weather.sun_times_dict.twelve_hour.sunset }}",
+            }
+        };
+    </script>
+
+</body>
+</html>
