@@ -161,7 +161,7 @@ def home(request, city=None): # handling home page
 
         user_ip = get_client_ip_address(request)
 
-        response = requests.get('https://ipinfo.io/' + user_ip + '?token=d6a18753dde2ed')
+        response = requests.get('https://ipinfo.io/' + user_ip + '?token=key')
 
         class InvalidIPAddress(Exception): # custom exception class
             "Raised when there's an IP error"
