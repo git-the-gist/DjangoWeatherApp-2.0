@@ -13,7 +13,7 @@ from requests.exceptions import ReadTimeout # importing ReadTimeout for timeout 
 from .utils import error_redirect_url, error_location_url # importing utils
 
 
-owm = pyowm.OWM('0d92fe6673852fd95c9d1ff3a259685a')  # defining pyowm API key
+owm = pyowm.OWM('key')  # defining pyowm API key
 
 mgr = owm.weather_manager()  # calling PyOWM weather manager
 
